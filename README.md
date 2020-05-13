@@ -35,7 +35,7 @@ Then go to into the `project` created and execute the following commands:
 ```bash
 cd project && mix deps.get && npm i --prefix assets && mix phx.gen.cert -o priv/ssl/project
 ```
-full instruccion inside on the project readme.
+further details  inside on the project Readme.md
 
 
 Please note you can easy remove the Example LiveView:
@@ -48,4 +48,4 @@ Remember replace `project` with the name of your `project`.
 If you want self-signed trusted certs (only-locally) use [mkcert](https://github.com/FiloSottile/mkcert)
 
 ----
-Created:  2020-05-09Z
+Created:  2020-05-09
