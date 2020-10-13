@@ -64,28 +64,35 @@ defmodule <%= @project_name_camel_case %>.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:gettext, "~> 0.18"},
+      {:jason, "~> 1.2"},
       {:phoenix, "~> 1.5.0"},
       {:phoenix_ecto, "~> 4.1"},
       {:phoenix_pubsub, "~> 2.0"},
       {:phoenix_html, "~> 2.14"},
       {:phoenix_live_view, "~> 0.12"},
       {:phoenix_live_dashboard, "~> 0.2"},
-      {:telemetry_metrics, "~> 0.4"},
-      {:telemetry_poller, "~> 0.4"},
-      {:plug_cowboy, "~> 2.1"},
-      {:gettext, "~> 0.17"},
-      {:jason, "~> 1.1"},
+      {:plug_cowboy, "~> 2.2"},
+      {:telemetry_metrics, "~> 0.5"},
+      {:telemetry_poller, "~> 0.5"},
       {:ecto_sql, "~> 3.4"},
       {:postgrex, ">= 0.0.0"},
+      # prod debug
+      {:recon, "~> 2.5"},
       # if you want to run in a cluster please go a read https://github.com/bitwalker/libcluster
       # {:libcluster, "~> X.Y"}
       # dev & test apps
+      {:credo, "~> 1.4", only: [:dev, :test], runtime: false},
+      # {:dino_tasks, github: "paridin/dino_tasks", only: :dev},
+      {:ex_doc, "~> 0.21", only: :dev, runtime: false},
+      {:ex_machina, "~> 2.4", only: :test},
+      {:excoveralls, "~> 0.13", only: :test},
+      # {:exvcr, "~> 0.11", only: [:dev, :test]},
+      {:floki, ">= 0.0.0", only: :test},
+      {:mix_test_watch, "~> 1.0", only: :dev, runtime: false},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:sobelow, "~> 0.8", only: :dev},
-      {:credo, "~> 1.2", only: [:dev, :test], runtime: false},
-      {:ex_doc, "~> 0.21", only: :dev, runtime: false},
-      {:floki, ">= 0.0.0", only: :test},
-      {:excoveralls, "~> 0.10", only: :test}
+      {:wallaby, "~> 0.26", [runtime: false, only: :test]}
     ]
   end
 
@@ -100,7 +107,14 @@ defmodule <%= @project_name_camel_case %>.MixProject do
       setup: ["deps.get", "ecto.setup"],
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
-      test: ["ecto.create --quiet", "ecto.migrate", "test"]
+      test: ["ecto.create --quiet", "ecto.migrate", "assets.compile --quiet", "test"],
+      "assets.compile": &compile_assets/1
     ]
+  end
+
+  defp compile_assets(_) do
+    Mix.shell().cmd("cd assets && ./node_modules/.bin/webpack --mode development",
+      quiet: true
+    )
   end
 end
