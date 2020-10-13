@@ -20,5 +20,5 @@ IEx.configure(
 
 # You can add here code to work during your iex session.
 # aliases could help you to your daily work.
-alias Wallet.Repo
+alias <%= @project_name_camel_case %>.Repo
 alias Phoenix.PubSub
