@@ -75,7 +75,7 @@ defmodule <%= @project_name_camel_case %>.MixProject do
       {:phoenix_live_view, "~> 0.15"},
       {:phoenix_live_dashboard, "~> 0.4"},
       {:plug_cowboy, "~> 2.2"},
-      {:telemetry, "~> 0.4.2"}
+      {:telemetry, "~> 0.4.2"},
       {:telemetry_metrics, "~> 0.6"},
       {:telemetry_poller, "~> 0.5"},
       {:postgrex, ">= 0.0.0"},
@@ -86,7 +86,7 @@ defmodule <%= @project_name_camel_case %>.MixProject do
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
       # {:dino_tasks, github: "paridin/dino_tasks", only: :dev},
       {:ex_doc, "~> 0.23", only: :dev, runtime: false},
-      # {:ex_machina, "~> 2.4", only: :test},
+      {:ex_machina, "~> 2.4", only: :test},
       {:excoveralls, "~> 0.13", only: :test},
       {:exvcr, "~> 0.12", only: [:dev, :test]},
       {:floki, ">= 0.0.0", only: :test},
