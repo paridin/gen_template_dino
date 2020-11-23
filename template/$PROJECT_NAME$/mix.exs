@@ -1,4 +1,5 @@
 defmodule <%= @project_name_camel_case %>.MixProject do
+  @moduledoc false
   use Mix.Project
 
   def project do
@@ -10,7 +11,7 @@ defmodule <%= @project_name_camel_case %>.MixProject do
       compilers: [:gettext, :phoenix] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       test_coverage: [tool: ExCoveralls],
-      description: "My awesome <%= @project_name %>.",
+      description: "<%= @project_name %>.",
       package: package(),
       # ExDoc
       name: "<%= @project_name %>",
