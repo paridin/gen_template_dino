@@ -64,34 +64,35 @@ defmodule <%= @project_name_camel_case %>.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:ecto_sql, "~> 3.5"},
+      {:ecto_psql_extras, "~> 0.4.1"},
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
-      {:phoenix, "~> 1.5.0"},
-      {:phoenix_ecto, "~> 4.1"},
+      {:phoenix, "~> 1.5"},
+      {:phoenix_ecto, "~> 4.2"},
       {:phoenix_pubsub, "~> 2.0"},
       {:phoenix_html, "~> 2.14"},
-      {:phoenix_live_view, "~> 0.12"},
-      {:phoenix_live_dashboard, "~> 0.2"},
+      {:phoenix_live_view, "~> 0.15"},
+      {:phoenix_live_dashboard, "~> 0.4"},
       {:plug_cowboy, "~> 2.2"},
-      {:telemetry_metrics, "~> 0.5"},
+      {:telemetry, "~> 0.4.2"}
+      {:telemetry_metrics, "~> 0.6"},
       {:telemetry_poller, "~> 0.5"},
-      {:ecto_sql, "~> 3.4"},
       {:postgrex, ">= 0.0.0"},
+      # {:libcluster, "~> 3.2"}
       # prod debug
       {:recon, "~> 2.5"},
-      # if you want to run in a cluster please go a read https://github.com/bitwalker/libcluster
-      # {:libcluster, "~> X.Y"}
       # dev & test apps
-      {:credo, "~> 1.4", only: [:dev, :test], runtime: false},
+      {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
       # {:dino_tasks, github: "paridin/dino_tasks", only: :dev},
-      {:ex_doc, "~> 0.21", only: :dev, runtime: false},
-      {:ex_machina, "~> 2.4", only: :test},
+      {:ex_doc, "~> 0.23", only: :dev, runtime: false},
+      # {:ex_machina, "~> 2.4", only: :test},
       {:excoveralls, "~> 0.13", only: :test},
-      # {:exvcr, "~> 0.11", only: [:dev, :test]},
+      {:exvcr, "~> 0.12", only: [:dev, :test]},
       {:floki, ">= 0.0.0", only: :test},
       {:mix_test_watch, "~> 1.0", only: :dev, runtime: false},
-      {:phoenix_live_reload, "~> 1.2", only: :dev},
-      {:sobelow, "~> 0.8", only: :dev},
+      {:phoenix_live_reload, "~> 1.3", only: :dev},
+      {:sobelow, "~> 0.10", only: [:dev, :test]},
       {:wallaby, "~> 0.26", [runtime: false, only: :test]}
     ]
   end

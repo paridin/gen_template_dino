@@ -38,7 +38,7 @@ config :<%= @project_name %>, <%= @project_name_camel_case %>Web.Endpoint,
       "node_modules/webpack/bin/webpack.js",
       "--mode",
       "development",
-      "--watch-stdin",
+      "--watch",
       cd: Path.expand("../assets", __DIR__)
     ]
   ]
@@ -47,7 +47,7 @@ config :<%= @project_name %>, <%= @project_name_camel_case %>Web.Endpoint,
 config :<%= @project_name %>, <%= @project_name_camel_case %>Web.Endpoint,
   live_reload: [
     patterns: [
-      ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
+      ~r"priv/static/(?!uploads).*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
       ~r"lib/<%= @project_name %>_web/(live|views)/.*(ex)$",
       ~r"lib/<%= @project_name %>_web/templates/.*(eex)$"
