@@ -2,18 +2,18 @@ defmodule GenTemplateDino.Mixfile do
   use Mix.Project
 
   @name :gen_template_dino
-  @version "0.1.3"
+  @version "0.1.4"
 
   @deps [
     {:mix_templates, ">0.0.0", app: false},
     {:ex_doc, ">0.0.0", only: [:dev, :test]}
   ]
 
-  @maintainers ["Roberto Estrada dev@paridin.com>"]
+  @maintainers ["Roberto Estrada <dev@paridin.com>"]
   @github "https://github.com/paridin/#{@name}"
 
   @description """
-  This template is focus on create an app using ecto & phoenix.
+  This template is focus on create an app using ecto & phoenix 1.5.
   """
 
   # ------------------------------------------------------------
