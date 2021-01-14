@@ -21,6 +21,9 @@ defmodule <%= @project_name_camel_case %>Web.ConnCase do
       import Plug.Conn
       import Phoenix.ConnTest
       import <%= @project_name_camel_case %>Web.ConnCase
+      import Phoenix.LiveViewTest
+      import <%= @project_name_camel_case %>Web.ConnCase.Helpers
+
 
       alias <%= @project_name_camel_case %>Web.Router.Helpers, as: Routes
 
