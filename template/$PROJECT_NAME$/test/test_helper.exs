@@ -4,7 +4,6 @@ ExUnit.start()
 
 case Application.ensure_all_started(:wallaby) do
   {:error, error} ->
-    IO.inspect(error)
 
     raise """
     Remember you need the chromium driver https://chromedriver.chromium.org/downloads

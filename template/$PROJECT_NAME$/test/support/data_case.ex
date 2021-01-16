@@ -15,6 +15,7 @@ defmodule <%= @project_name_camel_case %>.DataCase do
   """
 
   use ExUnit.CaseTemplate
+  alias Ecto.Adapters.SQL.Sandbox
 
   using do
     quote do
@@ -28,10 +29,10 @@ defmodule <%= @project_name_camel_case %>.DataCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(<%= @project_name_camel_case %>.Repo)
+    :ok = Sandbox.checkout(<%= @project_name_camel_case %>.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(<%= @project_name_camel_case %>.Repo, {:shared, self()})
+      Sandbox.mode(<%= @project_name_camel_case %>.Repo, {:shared, self()})
     end
 
     :ok

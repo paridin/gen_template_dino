@@ -4,6 +4,7 @@ defmodule <%= @project_name_camel_case %>Web.FeatureCase do
   """
 
   use ExUnit.CaseTemplate
+  alias Ecto.Adapters.SQL.Sandbox
 
   using do
     quote do
@@ -22,10 +23,10 @@ defmodule <%= @project_name_camel_case %>Web.FeatureCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(<%= @project_name_camel_case %>.Repo)
+    :ok = Sandbox.checkout(<%= @project_name_camel_case %>.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(<%= @project_name_camel_case %>.Repo, {:shared, self()})
+      Sandbox.mode(<%= @project_name_camel_case %>.Repo, {:shared, self()})
     end
 
     metadata = Phoenix.Ecto.SQL.Sandbox.metadata_for(<%= @project_name_camel_case %>.Repo, self())

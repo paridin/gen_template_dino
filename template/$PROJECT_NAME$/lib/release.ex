@@ -2,7 +2,8 @@
 defmodule <%= @project_name_camel_case %>.Release do
   @moduledoc false
   # To run on Docker image replace the last line with the following line.
-  # CMD trap 'exit' INT; /opt/app/bin/$(ls /opt/app/bin) eval "<%= @project_name_camel_case %>.Release.migrate" && /opt/app/bin/$(ls /opt/app/bin) start
+  # CMD trap 'exit' INT; /opt/app/bin/$(ls /opt/app/bin) eval "<%= @project_name_camel_case %>.Release.migrate" &&
+  # /opt/app/bin/$(ls /opt/app/bin) start
   @app :<%= @project_name %>
 
   def migrate do
