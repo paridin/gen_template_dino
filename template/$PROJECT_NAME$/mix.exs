@@ -66,10 +66,10 @@ defmodule <%= @project_name_camel_case %>.MixProject do
   defp deps do
     [
       {:ecto_sql, "~> 3.5"},
-      {:ecto_psql_extras, "~> 0.4.1"},
+      {:ecto_psql_extras, "~> 0.6"},
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
-      {:phoenix, "~> 1.5"},
+      {:phoenix, "~> 1.5.9"},
       {:phoenix_ecto, "~> 4.2"},
       {:phoenix_pubsub, "~> 2.0"},
       {:phoenix_html, "~> 2.14"},
@@ -94,7 +94,8 @@ defmodule <%= @project_name_camel_case %>.MixProject do
       {:mix_test_watch, "~> 1.0", only: :dev, runtime: false},
       {:phoenix_live_reload, "~> 1.3", only: :dev},
       {:sobelow, "~> 0.10", only: [:dev, :test]},
-      {:wallaby, "~> 0.26", [runtime: false, only: :test]}
+      {:wallaby, "~> 0.26", [runtime: false, only: :test]},
+      {:git_hooks, "~> 0.6.0", only: [:test, :dev], runtime: false},
     ]
   end
 
