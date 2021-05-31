@@ -2,7 +2,7 @@ defmodule GenTemplateDino.Mixfile do
   use Mix.Project
 
   @name :gen_template_dino
-  @version "0.1.6"
+  @version "0.1.7"
 
   @deps [
     {:mix_templates, ">0.0.0", app: false},
